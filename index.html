@@ -54,12 +54,20 @@
       transform: translateY(-4px);
     }
 
-    .vision-box, .mission-box {
-      background: #fff;
-      border-left: 6px solid var(--ted-red);
-      padding: 25px;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    /* Custom Boxes */
+    .black-box {
+      background: #000 !important;
+      color: #fff !important;
+    }
+
+    .red-box {
+      background: var(--ted-red) !important;
+      color: #000 !important;
+    }
+
+    .speaker-box {
+      background: var(--ted-red) !important;
+      color: white !important;
     }
 
     footer {
@@ -109,58 +117,71 @@
   <p class="mb-4">
     TEDx Adana Fen, gençlerin fikir üretme kültürünü desteklemeyi, ilham veren konuşmalar aracılığıyla
     toplulukta düşünsel bir hareketlilik oluşturmayı amaçlayan bağımsız bir TEDx etkinliğidir.
-    Amacımız; öğrencilerin merak duygusunu, yaratıcılığını ve toplumsal farkındalığını güçlendiren
-    bir paylaşım alanı oluşturmaktır.
   </p>
-
-  <div class="row g-4">
-    <div class="col-md-6">
-      <div class="vision-box">
-        <h4 class="fw-bold text-dark">Vizyonumuz</h4>
-        <p>
-          Düşüncenin dönüştürücü gücüne inanan bir gençlik topluluğu oluşturmak.
-          İlham veren konuşmaların öğrenciler arasında yeni bakış açıları ve yaratıcı çözümler üretmesini
-          hedefliyoruz. TEDx Adana Fen olarak, geleceğin liderlerini düşünmeye,
-          sorgulamaya ve üretmeye teşvik eden bir ortam yaratmayı vizyon ediniyoruz.
-        </p>
-      </div>
-    </div>
-
-    <div class="col-md-6">
-      <div class="mission-box">
-        <h4 class="fw-bold text-dark">Misyonumuz</h4>
-        <p>
-          Öğrencilere kendi seslerini duyurabilecekleri bir platform sunmak; fikirlerini özgürce ifade edebilecekleri,
-          yeni deneyimlerle büyüyebilecekleri bir alan yaratmak. Misyonumuz, öğrenmeyi sadece akademik başarıyla
-          sınırlamayan; sosyal, kültürel ve bilimsel gelişimi destekleyen bir paylaşım kültürü oluşturmaktır.
-        </p>
-      </div>
-    </div>
-  </div>
 </section>
 
 <!-- KONUŞMACILAR -->
 <section id="konusmacilar" class="container my-5">
   <h2>Konuşmacılar</h2>
   <div class="row g-4">
-    <div class="col-md-4">
-      <div class="info-card">
+
+    <!-- 8 Konuşmacı -->
+    <div class="col-md-3">
+      <div class="info-card speaker-box">
         <h5>Konuşmacı 1</h5>
         <p>Konu açıklaması</p>
       </div>
     </div>
-    <div class="col-md-4">
-      <div class="info-card">
+
+    <div class="col-md-3">
+      <div class="info-card speaker-box">
         <h5>Konuşmacı 2</h5>
         <p>Konu açıklaması</p>
       </div>
     </div>
-    <div class="col-md-4">
-      <div class="info-card">
+
+    <div class="col-md-3">
+      <div class="info-card speaker-box">
         <h5>Konuşmacı 3</h5>
         <p>Konu açıklaması</p>
       </div>
     </div>
+
+    <div class="col-md-3">
+      <div class="info-card speaker-box">
+        <h5>Konuşmacı 4</h5>
+        <p>Konu açıklaması</p>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="info-card speaker-box">
+        <h5>Konuşmacı 5</h5>
+        <p>Konu açıklaması</p>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="info-card speaker-box">
+        <h5>Konuşmacı 6</h5>
+        <p>Konu açıklaması</p>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="info-card speaker-box">
+        <h5>Konuşmacı 7</h5>
+        <p>Konu açıklaması</p>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="info-card speaker-box">
+        <h5>Konuşmacı 8</h5>
+        <p>Konu açıklaması</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -180,23 +201,27 @@
   <h2>Kadro</h2>
 
   <div class="row justify-content-center g-4 mb-4">
+
+    <!-- Siyah kutular -->
     <div class="col-md-4">
-      <div class="info-card text-center">
+      <div class="info-card text-center black-box">
         <h5>Organizator</h5>
         <p>Alya Erteni</p>
       </div>
     </div>
+
     <div class="col-md-4">
-      <div class="info-card text-center">
+      <div class="info-card text-center black-box">
         <h5>Co-Founder</h5>
         <p>Ömer Raif Özoğlu</p>
       </div>
     </div>
   </div>
 
+  <!-- Kırmızı kutular -->
   <div class="row g-4">
     <div class="col-md-4">
-      <div class="info-card text-center">
+      <div class="info-card text-center red-box">
         <h5>Media Team</h5>
         <p>Mehmet Ulaç Girgin</p>
         <p>Elif Su Özdemir</p>
@@ -205,14 +230,14 @@
     </div>
 
     <div class="col-md-4">
-      <div class="info-card text-center">
+      <div class="info-card text-center red-box">
         <h5>Event Team</h5>
         <p>Ad Soyad</p>
       </div>
     </div>
 
     <div class="col-md-4">
-      <div class="info-card text-center">
+      <div class="info-card text-center red-box">
         <h5>Treasure Team</h5>
         <p>Ad Soyad</p>
       </div>
