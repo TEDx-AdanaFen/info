@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TEDx Adana Fen</title>
+  <style>
+    :root { --ted-red: #e62b1e; }
+    body { font-family: system-ui, Arial, sans-serif; margin: 0; color: #222; }
+    header { background: var(--ted-red); color: #fff; padding: 36px 20px; text-align: center; }
+    nav { background: #111; padding: 10px; display: flex; gap: 16px; justify-content: center; }
+    nav a { color: #fff; text-decoration: none; font-weight: 600; }
+    nav a:hover { text-decoration: underline; }
+    main { max-width: 960px; margin: 24px auto; padding: 0 16px; }
+    section { margin: 32px 0; }
+    h2 { border-bottom: 2px solid #eee; padding-bottom: 8px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
+    .card { border: 1px solid #eee; border-radius: 8px; padding: 16px; }
+    footer { background: #f7f7f7; padding: 16px; text-align: center; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>TEDx Adana Fen</h1>
+    <p>Fikirlerimizi paylaşıyoruz</p>
+  </header>
+  <nav>
+    <a href="#hakkinda">Hakkında</a>
+    <a href="#konusmacilar">Konuşmacılar</a>
+    <a href="#program">Program</a>
+    <a href="#iletisim">İletişim</a>
+  </nav>
+  <main>
+    <section id="hakkinda">
+      <h2>Hakkında</h2>
+      <p>TEDx Adana Fen, bağımsız olarak düzenlenen ve ilham verici fikirleri paylaşmayı amaçlayan yerel bir TEDx etkinliğidir.</p>
+    </section>
+
+    <section id="konusmacilar">
+      <h2>Konuşmacılar</h2>
+      <div class="grid">
+        <div class="card"><strong>Konuşmacı 1</strong><br>Konusu kısa açıklama.</div>
+        <div class="card"><strong>Konuşmacı 2</strong><br>Konusu kısa açıklama.</div>
+        <div class="card"><strong>Konuşmacı 3</strong><br>Konusu kısa açıklama.</div>
+      </div>
+    </section>
+
+    <section id="program">
+      <h2>Program</h2>
+      <ul>
+        <li>10:00 — Açılış</li>
+        <li>10:30 — Konuşma 1</li>
+        <li>11:30 — Ara</li>
+        <li>12:00 — Konuşma 2</li>
+      </ul>
+    </section>
+
+    <section id="iletisim">
+      <h2>İletişim</h2>
+      <p>E-posta: info@tedxadanafen.org (örnek)</p>
+    </section>
+  </main>
+  <footer>
+    © 2025 TEDx Adana Fen
+  </footer>
+</body>
+</html>
