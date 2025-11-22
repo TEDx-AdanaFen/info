@@ -1,169 +1,624 @@
-<!DOCTYPE html>
-<html lang="tr">
+<!doctype html>
+<html lang="tr" data-bs-theme="dark">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>TEDx Adana Fen</title>
-
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Bootstrap Icons -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    :root { --ted-red: #e62b1e; }
-
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f9f9f9;
+    :root {
+      --brand-red: #e62b1e; /* TEDx kırmızısı */
+      --brand-dark: #0b0b0d;
+      --brand-gray: #1a1a1d;
+      --text-muted: #a0a4ad;
+      --card-bg: #111114;
+      --card-border: #1f1f24;
     }
-
+    html, body {
+      scroll-behavior: smooth;
+      background: radial-gradient(1200px 600px at 10% 10%, #121217, #0b0b0d);
+      color: #eceef2;
+    }
     .navbar {
-      background: #111;
-      padding: 15px 0;
+      backdrop-filter: blur(6px);
+      background: rgba(12, 12, 14, 0.75) !important;
+      border-bottom: 1px solid #1f1f24;
     }
-    .navbar a { color: white !important; font-weight: 600; }
+    .nav-link { color: #cfd2d8 !important; }
+    .nav-link:hover, .nav-link.active { color: var(--brand-red) !important; }
 
-    .logo-img { height: 48px; }
-
-    /* HERO */
-    .hero {
-      background: linear-gradient(135deg, #111, var(--ted-red));
-      color: white;
-      padding: 140px 20px;
-      text-align: center;
-    }
-    .hero h1 { font-size: 3.6rem; font-weight: 800; animation: fadeInDown 1s; }
-    .hero p { font-size: 1.3rem; margin-top: 10px; animation: fadeInUp 1.2s; }
-    @keyframes fadeInDown { from {opacity:0; transform:translateY(-30px);} to {opacity:1; transform:translateY(0);} }
-    @keyframes fadeInUp { from {opacity:0; transform:translateY(30px);} to {opacity:1; transform:translateY(0);} }
-
-    /* Section Titles */
-    h2 {
-      font-weight: 700;
-      border-left: 6px solid var(--ted-red);
-      padding-left: 10px;
-      margin-bottom: 25px;
+    .brand-dot {
+      display: inline-block;
+      width: .65rem; height: .65rem;
+      background: var(--brand-red);
+      border-radius: 50%;
+      margin-left: .25rem;
     }
 
-    /* Cards */
-    .info-card {
-      background: white;
-      border-radius: 12px;
-      padding: 25px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      transition: .2s;
-    }
-    .info-card:hover {
-      transform: translateY(-4px);
-    }
-
-    /* Custom Boxes */
-    .black-box {
-      background: #000 !important;
-      color: #fff !important;
-    }
-    .red-box {
-      background: var(--ted-red) !important;
-      color: #000 !important;
-    }
-    .speaker-box {
-      background: var(--ted-red) !important;
-      color: white !important;
-    }
-
-    footer {
-      background: #111;
+    .btn-brand {
+      background: var(--brand-red);
+      border: none;
       color: #fff;
+      box-shadow: 0 10px 30px rgba(230, 43, 30, 0.25);
+    }
+    .btn-brand:hover { background: #cc261a; }
+
+    .section {
+      padding: 90px 0;
+      border-top: 1px solid #1f1f24;
+    }
+    .section-title {
+      font-weight: 800;
+      letter-spacing: .5px;
+      font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+    }
+    .section-kicker {
+      color: var(--text-muted);
+      font-size: .95rem;
+      letter-spacing: .12rem;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      padding: 120px 0 80px 0;
+      background:
+        radial-gradient(600px 280px at 88% 15%, rgba(230, 43, 30, .12), transparent 60%),
+        radial-gradient(800px 420px at 10% 80%, rgba(255,255,255,.04), transparent 60%);
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      border: 1px solid #26262c;
+      padding: .5rem .75rem;
+      border-radius: 999px;
+      color: var(--text-muted);
+      font-size: .9rem;
+    }
+
+    .card-modern {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+    }
+
+    /* Program timeline */
+    .timeline {
+      position: relative;
+      padding-left: 2rem;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: .75rem; top: 0; bottom: 0;
+      width: 2px; background: #2a2a31;
+    }
+    .tl-item {
+      position: relative;
+      margin-bottom: 1.25rem;
+      padding-left: .5rem;
+    }
+    .tl-item::before {
+      content: "";
+      position: absolute;
+      left: -1rem; top: .45rem;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--brand-red);
+      box-shadow: 0 0 0 4px rgba(230,43,30,.12);
+    }
+    .tl-time { color: var(--text-muted); font-size: .9rem; }
+
+    /* Konuşmacılar */
+    .speaker-card {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 1.25rem;
+      padding: 1.25rem;
+    }
+    .speaker-img {
+      width: 120px; height: 120px;
+      border-radius: 12px;
+      object-fit: cover;
+      background: linear-gradient(135deg, #1f1f24, #141418);
+      border: 1px solid #26262c;
+    }
+    .speaker-name { font-weight: 800; }
+    .speaker-role { color: var(--text-muted); font-style: italic; }
+    .speaker-bio { color: #d9dbe1; }
+
+    /* Mekan */
+    .venue-card .badge {
+      background: rgba(230,43,30,.12);
+      color: #ffb7ae;
+      border: 1px solid rgba(230,43,30,.25);
+    }
+
+    /* Kadro */
+    .team-group-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: .02rem;
+      color: #e1e3e8;
+    }
+    .team-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: .75rem;
+    }
+    .team-pill {
+      background: #131318;
+      border: 1px solid #26262c;
+      color: #cfd2d8;
+      border-radius: 999px;
+      padding: .5rem .75rem;
       text-align: center;
-      padding: 30px;
-      margin-top: 40px;
+      font-size: .95rem;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid #1f1f24;
+      padding: 40px 0;
+      color: var(--text-muted);
+    }
+
+    /* Utilities */
+    .muted { color: var(--text-muted); }
+    .divider {
+      height: 1px; background: #1f1f24; width: 100%;
+    }
+
+    @media (max-width: 576px) {
+      .speaker-card { grid-template-columns: 90px 1fr; }
+      .speaker-img { width: 90px; height: 90px; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg">
-  <div class="container">
-    <img src="image.png" class="logo-img" alt="logo">
-    <a class="navbar-brand text-white" href="#">TEDx Adana Fen</a>
-
-    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
-      <span class="navbar-toggler-icon bg-light"></span>
-    </button>
-
-    <div id="nav" class="collapse navbar-collapse">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link" href="#hakkinda">Hakkında</a></li>
-        <li class="nav-item"><a class="nav-link" href="#konusmacilar">Konuşmacılar</a></li>
-        <li class="nav-item"><a class="nav-link" href="#program">Program</a></li>
-        <li class="nav-item"><a class="nav-link" href="#kadro">Kadro</a></li>
-        <li class="nav-item"><a class="nav-link" href="#iletisim">İletişim</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <h1>TEDx Adana Fen</h1>
-  <p>Fikirlerin Dönüştürücü Gücüne İnanıyoruz</p>
-  <a href="#program" class="btn btn-light btn-lg mt-3"><i class="bi bi-calendar-event"></i> Programı Gör</a>
-</section>
-
-<!-- HAKKINDA -->
-<section id="hakkinda" class="container my-5">
-  <h2>Hakkında</h2>
-  <p class="mb-4">
-    TEDx Adana Fen, gençlerin fikir üretme kültürünü desteklemeyi, ilham veren konuşmalar aracılığıyla
-    toplulukta düşünsel bir hareketlilik oluşturmayı amaçlayan bağımsız bir TEDx etkinliğidir.
-  </p>
-</section>
-
-<!-- KONUŞMACILAR -->
-<section id="konusmacilar" class="container my-5">
-  <h2>Konuşmacılar</h2>
-  <div class="row g-4">
-    <!-- 8 Konuşmacı -->
-    <div class="col-md-3"><div class="info-card speaker-box text-center"><i class="bi bi-person-circle fs-1"></i><h5>Konuşmacı 1</h5><p>Konu açıklaması</p></div></div>
-    <div class="col-md-3"><div class="info-card speaker-box text-center"><i class="bi bi-person-circle fs-1"></i><h5>Konuşmacı 2</h5><p>Konu açıklaması</p></div></div>
-    <div class="col-md-3"><div class="info-card speaker-box text-center"><i class="bi bi-person-circle fs-1"></i><h5>Konuşmacı 3</h5><p>Konu açıklaması</p></div></div>
-    <div class="col-md-3"><div class="info-card speaker-box text-center"><i class="bi bi-person-circle fs-1"></i><h5>Konuşmacı 4</h5><p>Konu açıklaması</p></div></div>
-    <div class="col-md-3"><div class="info-card speaker-box text-center"><i class="bi bi-person-circle fs-1"></i><h5>Konuşmacı 5</h5><p>Konu açıklaması</p></div></div>
-    <div class="col-md-3"><div class="info-card speaker-box text-center"><i class="bi bi-person-circle fs-1"></i><h5>Konuşmacı 6</h5><p>Konu açıklaması</p></div></div>
-    <div class="col-md-3"><div class="info-card speaker-box text-center"><i class="bi bi-person-circle fs-1"></i><h5>Konuşmacı 7</h5><p>Konu açıklaması</p></div></div>
-    <div class="col-md-3"><div class="info-card speaker-box text-center"><i class="bi bi-person-circle fs-1"></i><h5>Konuşmacı 8</h5><p>Konu açıklaması</p></div></div>
-  </div>
-</section>
-
-<!-- PROGRAM -->
-<section id="program" class="container my-5">
-  <h2>Program</h2>
-  <ul class="list-group shadow-sm">
-    <li class="list-group-item"><i class="bi bi-door-open"></i> 10:00 — Açılış</li>
-    <li class="list-group-item"><i class="bi bi-mic"></i> 10:30 — Konuşma 1</li>
-    <li class="list-group-item"><i class="bi bi-cup-hot"></i> 11:30 — Ara</li>
-    <li class="list-group-item"><i class="bi bi-mic"></i> 12:00 — Konuşma 2</li>
-  </ul>
-</section>
-
-<!-- KADRO -->
-<section id="kadro" class="container my-5">
-  <h2>Kadro</h2>
-  <div class="row justify-content-center mb-4">
-    <div class="col-md-4 mb-3">
-      <div class="info-card text-center black-box">
-        <h5><i class="bi bi-star-fill"></i> Organizatör</h5>
-        <p>Alya Erteni</p>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#home">
+        TEDx Adana Fen <span class="brand-dot"></span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain" aria-controls="navMain" aria-expanded="false" aria-label="Menüyü Aç">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMain">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#hakkimizda">Hakkımızda</a></li>
+          <li class="nav-item"><a class="nav-link" href="#program">Program</a></li>
+          <li class="nav-item"><a class="nav-link" href="#konusmacilar">Konuşmacılar</a></li>
+          <li class="nav-item"><a class="nav-link" href="#mekan">Mekan</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kadro">Kadro</a></li>
+          <li class="nav-item"><a class="nav-link" href="#iletisim">İletişim</a></li>
+        </ul>
       </div>
     </div>
-    <div class="col-md-4 mb-3">
-      <div class="info-card text-center black-box">
-        <h5><i class="bi bi-lightbulb"></i> Co-Founder</h5>
-        <p>Ömer Raif Özoğlu</p>
+  </nav>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="row align-items-center gy-4">
+        <div class="col-lg-7">
+          <div class="hero-tag mb-3">
+            <span class="badge rounded-pill text-bg-dark border">TEDx</span>
+            Adana Fen Lisesi’nden bağımsız, yerel topluluk etkinliği
+          </div>
+          <h1 class="display-5 fw-bold">
+            Fikirler yaymaya değer. <br>
+            Adana’dan dünyaya ilham.
+          </h1>
+          <p class="lead muted mb-4">
+            TEDx Adana Fen, farklı disiplinlerden konuşmacıları bir araya getirerek merak, keşif ve toplumsal etki odaklı bir sahne sunar.
+          </p>
+          <div class="d-flex gap-2">
+            <a href="#program" class="btn btn-brand btn-lg px-4">Programı Gör</a>
+            <a href="#konusmacilar" class="btn btn-outline-light btn-lg px-4">Konuşmacılar</a>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="card-modern p-4">
+            <div class="d-flex align-items-center justify-content-between">
+              <span class="section-kicker">Etkinlik Özeti</span>
+              <span class="badge text-bg-dark border">2025</span>
+            </div>
+            <div class="divider my-3"></div>
+            <div class="row text-center g-3">
+              <div class="col-4">
+                <div class="h4 fw-bold">8</div>
+                <div class="muted">Konuşma</div>
+              </div>
+              <div class="col-4">
+                <div class="h4 fw-bold">1</div>
+                <div class="muted">Sahne</div>
+              </div>
+              <div class="col-4">
+                <div class="h4 fw-bold">∞</div>
+                <div class="muted">İlham</div>
+              </div>
+            </div>
+            <div class="mt-3 text-center">
+              <small class="muted">Bağımsız & topluluk destekli bir etkinliktir.</small>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div
+  </section>
+
+  <!-- Hakkımızda -->
+  <section id="hakkimizda" class="section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="d-flex align-items-center gap-3 mb-2">
+            <span class="section-kicker">Hakkımızda</span>
+            <span class="badge text-bg-dark border">TEDx Adana Fen</span>
+          </div>
+          <h2 class="section-title mb-3">Kısa hikayemiz</h2>
+          <p class="muted">
+            TEDx Adana Fen, yerel topluluk içinde yenilikçi fikirlerin paylaşılmasını destekleyen, bağımsız olarak organize edilen bir TEDx etkinliğidir.
+            Amacımız gençlerin ve profesyonellerin aynı sahnede buluşarak birbirinden öğrenmesi ve yeni işbirliklerinin doğmasıdır.
+          </p>
+
+          <div class="row g-3 mt-4">
+            <div class="col-md-6">
+              <div class="card-modern p-4 h-100">
+                <div class="section-kicker mb-2">Vizyonumuz</div>
+                <p>
+                  Adana’yı ilham veren fikirlerin buluşma noktası yapmak; öğrenme, üretim ve etki kültürünü sürdürülebilir şekilde yaygınlaştırmak.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card-modern p-4 h-100">
+                <div class="section-kicker mb-2">Misyonumuz</div>
+                <p>
+                  Disiplinler arası konuşmaları erişilebilir kılmak, gençlerin sesini duyurmak ve toplumsal faydayı önceleyen projeleri görünür hale getirmek.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Program -->
+  <section id="program" class="section">
+    <div class="container">
+      <div class="d-flex align-items-center gap-3 mb-2">
+        <span class="section-kicker">Program</span>
+        <span class="badge text-bg-dark border">Akış</span>
+      </div>
+      <h2 class="section-title mb-4">Günün akışı</h2>
+
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="card-modern p-4 h-100">
+            <div class="timeline">
+              <div class="tl-item">
+                <div class="fw-bold">Açılış Konuşması</div>
+                <div class="tl-time">10:00 - 10:15</div>
+              </div>
+              <div class="tl-item">
+                <div class="fw-bold">Konuşma 1</div>
+                <div class="tl-time">10:20 - 10:40</div>
+              </div>
+              <div class="tl-item">
+                <div class="fw-bold">Konuşma 2</div>
+                <div class="tl-time">10:45 - 11:05</div>
+              </div>
+              <div class="tl-item">
+                <div class="fw-bold">Ara</div>
+                <div class="tl-time">11:05 - 11:25</div>
+              </div>
+              <div class="tl-item">
+                <div class="fw-bold">Konuşma 3</div>
+                <div class="tl-time">11:30 - 11:50</div>
+              </div>
+              <div class="tl-item">
+                <div class="fw-bold">Konuşma 4</div>
+                <div class="tl-time">11:55 - 12:15</div>
+              </div>
+              <div class="tl-item">
+                <div class="fw-bold">Öğle Arası</div>
+                <div class="tl-time">12:15 - 13:30</div>
+              </div>
+              <div class="tl-item">
+                <div class="fw-bold">Konuşma 5</div>
+                <div class="tl-time">13:35 - 13:55</div>
+              </div>
+              <div class="tl-item">
+                <div class="fw-bold">Konuşma 6</div>
+                <div class="tl-time">14:00 - 14:20</div>
+              </div>
+              <div class="tl-item">
+                <div class="fw-bold">Kapanış</div>
+                <div class="tl-time">14:25 - 14:45</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="card-modern p-4 h-100">
+            <div class="d-flex align-items-center justify-content-between">
+              <div class="section-kicker">Notlar</div>
+              <span class="badge text-bg-dark border">Önemli</span>
+            </div>
+            <ul class="mt-3 mb-0 list-unstyled">
+              <li class="mb-2">• Program saatleri değişiklik gösterebilir.</li>
+              <li class="mb-2">• Ara sırasında ikram ve networking alanı açıktır.</li>
+              <li>• Fotoğraf ve video çekimleri etkinlik boyunca devam edecektir.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Konuşmacılar -->
+  <section id="konusmacilar" class="section">
+    <div class="container">
+      <div class="d-flex align-items-center gap-3 mb-2">
+        <span class="section-kicker">Konuşmacılar</span>
+        <span class="badge text-bg-dark border">8 kişi</span>
+      </div>
+      <h2 class="section-title mb-4">Sahnedeki isimler</h2>
+
+      <div class="row g-3">
+        <!-- 1 -->
+        <div class="col-lg-6">
+          <div class="card-modern speaker-card">
+            <img class="speaker-img" alt="Konuşmacı 1" src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?q=80&w=400&auto=format&fit=crop">
+            <div>
+              <div class="speaker-name">Konuşmacı Adı 1</div>
+              <div class="speaker-role">Girişimci</div>
+              <p class="speaker-bio mb-0">Teknoloji ve tasarımın kesişiminde yeni ürünler geliştiren, toplumsal faydayı önceleyen bir lider.</p>
+            </div>
+          </div>
+        </div>
+        <!-- 2 -->
+        <div class="col-lg-6">
+          <div class="card-modern speaker-card">
+            <img class="speaker-img" alt="Konuşmacı 2" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop">
+            <div>
+              <div class="speaker-name">Konuşmacı Adı 2</div>
+              <div class="speaker-role">Akademisyen</div>
+              <p class="speaker-bio mb-0">Bilimsel merakıyla gençleri araştırmaya teşvik eden, açık bilim savunucusu bir eğitimci.</p>
+            </div>
+          </div>
+        </div>
+        <!-- 3 -->
+        <div class="col-lg-6">
+          <div class="card-modern speaker-card">
+            <img class="speaker-img" alt="Konuşmacı 3" src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=400&auto=format&fit=crop">
+            <div>
+              <div class="speaker-name">Konuşmacı Adı 3</div>
+              <div class="speaker-role">Tasarımcı</div>
+              <p class="speaker-bio mb-0">Kullanıcı odaklı yaklaşımıyla karmaşık sorunları yalın ve etkili deneyimlere dönüştürüyor.</p>
+            </div>
+          </div>
+        </div>
+        <!-- 4 -->
+        <div class="col-lg-6">
+          <div class="card-modern speaker-card">
+            <img class="speaker-img" alt="Konuşmacı 4" src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=400&auto=format&fit=crop">
+            <div>
+              <div class="speaker-name">Konuşmacı Adı 4</div>
+              <div class="speaker-role">Sosyal Girişimci</div>
+              <p class="speaker-bio mb-0">Toplumsal etki projeleriyle dezavantajlı gruplara sürdürülebilir çözümler üretiyor.</p>
+            </div>
+          </div>
+        </div>
+        <!-- 5 -->
+        <div class="col-lg-6">
+          <div class="card-modern speaker-card">
+            <img class="speaker-img" alt="Konuşmacı 5" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=400&auto=format&fit=crop">
+            <div>
+              <div class="speaker-name">Konuşmacı Adı 5</div>
+              <div class="speaker-role">Yazar</div>
+              <p class="speaker-bio mb-0">Hikâye anlatımını veriyle buluşturarak değişim için ikna edici anlatılar kuruyor.</p>
+            </div>
+          </div>
+        </div>
+        <!-- 6 -->
+        <div class="col-lg-6">
+          <div class="card-modern speaker-card">
+            <img class="speaker-img" alt="Konuşmacı 6" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400&auto=format&fit=crop">
+            <div>
+              <div class="speaker-name">Konuşmacı Adı 6</div>
+              <div class="speaker-role">Mühendis</div>
+              <p class="speaker-bio mb-0">Üretim ve otomasyon alanında ölçeklenebilir çözümler geliştirerek yerel endüstriye katkı sağlıyor.</p>
+            </div>
+          </div>
+        </div>
+        <!-- 7 -->
+        <div class="col-lg-6">
+          <div class="card-modern speaker-card">
+            <img class="speaker-img" alt="Konuşmacı 7" src="https://images.unsplash.com/photo-1525134479668-1bee5c7c6845?q=80&w=400&auto=format&fit=crop">
+            <div>
+              <div class="speaker-name">Konuşmacı Adı 7</div>
+              <div class="speaker-role">Sanatçı</div>
+              <p class="speaker-bio mb-0">Disiplinler arası üretimle sanatı kamusal alana taşıyan yenilikçi bir anlatıcı.</p>
+            </div>
+          </div>
+        </div>
+        <!-- 8 -->
+        <div class="col-lg-6">
+          <div class="card-modern speaker-card">
+            <img class="speaker-img" alt="Konuşmacı 8" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=400&auto=format&fit=crop">
+            <div>
+              <div class="speaker-name">Konuşmacı Adı 8</div>
+              <div class="speaker-role">Araştırmacı</div>
+              <p class="speaker-bio mb-0">Veri odaklı yaklaşımıyla yerel sorunlara ölçülebilir ve etkili çözümler sunuyor.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-4 text-center">
+        <small class="muted">Görseller örnek amaçlıdır; resmi fotoğraflar etkinlikten sonra yayınlanacaktır.</small>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mekan -->
+  <section id="mekan" class="section">
+    <div class="container">
+      <div class="d-flex align-items-center gap-3 mb-2">
+        <span class="section-kicker">Mekan</span>
+        <span class="badge text-bg-dark border">Adana Fen Lisesi</span>
+      </div>
+      <h2 class="section-title mb-4">Adana Fen Lisesi hakkında</h2>
+
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <div class="card-modern p-4 venue-card h-100">
+            <span class="badge rounded-pill mb-2">Konum • Adana</span>
+            <p class="mb-2">
+              Adana Fen Lisesi, bilim ve araştırma kültürünü merkezine alan, birçok ulusal başarıya imza atmış köklü bir eğitim kurumudur.
+              Modern konferans salonu ve teknik altyapısıyla TEDx etkinlikleri için ideal bir ev sahipliği sunar.
+            </p>
+            <p class="muted mb-0">
+              Ulaşım, otopark ve yönlendirme alanları etkinlik günü boyunca görevli ekipler tarafından desteklenecektir.
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card-modern p-4 h-100">
+            <div class="section-kicker mb-2">Öne çıkanlar</div>
+            <ul class="mb-0">
+              <li>Geniş sahne ve profesyonel ışık sistemi</li>
+              <li>Yüksek kaliteli ses ve kayıt altyapısı</li>
+              <li>Çalışma ve networking alanları</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kadro -->
+  <section id="kadro" class="section">
+    <div class="container">
+      <div class="d-flex align-items-center gap-3 mb-2">
+        <span class="section-kicker">Kadro</span>
+        <span class="badge text-bg-dark border">Organizasyon Ekibi</span>
+      </div>
+      <h2 class="section-title mb-4">Etkinliği mümkün kılan ekip</h2>
+
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="card-modern p-4 h-100">
+            <div class="team-group-title mb-2">Organizatör</div>
+            <div class="team-list" style="grid-template-columns: 1fr;">
+              <div class="team-pill">Alya Erteni</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="card-modern p-4 h-100">
+            <div class="team-group-title mb-2">Co‑Founder</div>
+            <div class="team-list" style="grid-template-columns: 1fr;">
+              <div class="team-pill">Ömer Raif Özoğlu</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="card-modern p-4 h-100">
+            <div class="team-group-title mb-2">Media Team</div>
+            <div class="team-list">
+              <div class="team-pill">İsim 1</div>
+              <div class="team-pill">İsim 2</div>
+              <div class="team-pill">İsim 3</div>
+              <div class="team-pill">İsim 4</div>
+              <div class="team-pill">İsim 5</div>
+              <div class="team-pill">İsim 6</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="card-modern p-4 h-100">
+            <div class="team-group-title mb-2">Event Team</div>
+            <div class="team-list">
+              <div class="team-pill">İsim 1</div>
+              <div class="team-pill">İsim 2</div>
+              <div class="team-pill">İsim 3</div>
+              <div class="team-pill">İsim 4</div>
+              <div class="team-pill">İsim 5</div>
+              <div class="team-pill">İsim 6</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="card-modern p-4 h-100">
+            <div class="team-group-title mb-2">Treasure Team</div>
+            <div class="team-list">
+              <div class="team-pill">İsim 1</div>
+              <div class="team-pill">İsim 2</div>
+              <div class="team-pill">İsim 3</div>
+              <div class="team-pill">İsim 4</div>
+              <div class="team-pill">İsim 5</div>
+              <div class="team-pill">İsim 6</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- İletişim -->
+  <section id="iletisim" class="section">
+    <div class="container">
+      <div class="d-flex align-items-center gap-3 mb-2">
+        <span class="section-kicker">İletişim</span>
+        <span class="badge text-bg-dark border">Bağlantı</span>
+      </div>
+      <h2 class="section-title mb-4">Bize ulaşın</h2>
+
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <div class="card-modern p-4 h-100">
+            <div class="mb-2 fw-bold">E‑posta</div>
+            <a class="link-light" href="mailto:tedxadanafen@gmail.com">tedxadanafen@gmail.com</a>
+            <div class="divider my-3"></div>
+            <div class="mb-2 fw-bold">Instagram</div>
+            <a class="link-light" href="https://instagram.com/tedxadanafen" target="_blank">@tedxadanafen</a>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card-modern p-4 h-100">
+            <div class="section-kicker mb-2">Not</div>
+            <p class="mb-0 muted">
+              Basın ve iş birlikleri için e‑posta üzerinden konu başlığını belirtmeniz yanıt süremizi hızlandıracaktır.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container d-flex flex-column flex-lg-row align-items-center justify-content-between gap-3">
+      <div>© 2025 TEDx Adana Fen — Tüm hakları saklıdır.</div>
+      <div class="muted">Bağımsız olarak organize edilen bir TEDx etkinliğidir.</div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
