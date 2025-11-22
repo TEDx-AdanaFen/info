@@ -7,6 +7,8 @@
 
   <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 
   <style>
     :root { --ted-red: #e62b1e; }
@@ -28,11 +30,13 @@
     .hero {
       background: linear-gradient(135deg, #111, var(--ted-red));
       color: white;
-      padding: 120px 20px;
+      padding: 140px 20px;
       text-align: center;
     }
-    .hero h1 { font-size: 3.4rem; font-weight: 800; }
-    .hero p { font-size: 1.3rem; margin-top: 10px; }
+    .hero h1 { font-size: 3.6rem; font-weight: 800; animation: fadeInDown 1s; }
+    .hero p { font-size: 1.3rem; margin-top: 10px; animation: fadeInUp 1.2s; }
+    @keyframes fadeInDown { from {opacity:0; transform:translateY(-30px);} to {opacity:1; transform:translateY(0);} }
+    @keyframes fadeInUp { from {opacity:0; transform:translateY(30px);} to {opacity:1; transform:translateY(0);} }
 
     /* Section Titles */
     h2 {
@@ -59,12 +63,10 @@
       background: #000 !important;
       color: #fff !important;
     }
-
     .red-box {
       background: var(--ted-red) !important;
       color: #000 !important;
     }
-
     .speaker-box {
       background: var(--ted-red) !important;
       color: white !important;
@@ -74,7 +76,7 @@
       background: #111;
       color: #fff;
       text-align: center;
-      padding: 20px;
+      padding: 30px;
       margin-top: 40px;
     }
   </style>
@@ -85,7 +87,7 @@
 <nav class="navbar navbar-expand-lg">
   <div class="container">
     <img src="image.png" class="logo-img" alt="logo">
-    <a class="navbar-brand" href="#">TEDx Adana Fen</a>
+    <a class="navbar-brand text-white" href="#">TEDx Adana Fen</a>
 
     <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
       <span class="navbar-toggler-icon bg-light"></span>
@@ -107,7 +109,7 @@
 <section class="hero">
   <h1>TEDx Adana Fen</h1>
   <p>Fikirlerin Dönüştürücü Gücüne İnanıyoruz</p>
-  <a href="#program" class="btn btn-light btn-lg mt-3">Programı Gör</a>
+  <a href="#program" class="btn btn-light btn-lg mt-3"><i class="bi bi-calendar-event"></i> Programı Gör</a>
 </section>
 
 <!-- HAKKINDA -->
@@ -124,14 +126,14 @@
   <h2>Konuşmacılar</h2>
   <div class="row g-4">
     <!-- 8 Konuşmacı -->
-    <div class="col-md-3"><div class="info-card speaker-box"><h5>Konuşmacı 1</h5><p>Konu açıklaması</p></div></div>
-    <div class="col-md-3"><div class="info-card speaker-box"><h5>Konuşmacı 2</h5><p>Konu açıklaması</p></div></div>
-    <div class="col-md-3"><div class="info-card speaker-box"><h5>Konuşmacı 3</h5><p>Konu açıklaması</p></div></div>
-    <div class="col-md-3"><div class="info-card speaker-box"><h5>Konuşmacı 4</h5><p>Konu açıklaması</p></div></div>
-    <div class="col-md-3"><div class="info-card speaker-box"><h5>Konuşmacı 5</h5><p>Konu açıklaması</p></div></div>
-    <div class="col-md-3"><div class="info-card speaker-box"><h5>Konuşmacı 6</h5><p>Konu açıklaması</p></div></div>
-    <div class="col-md-3"><div class="info-card speaker-box"><h5>Konuşmacı 7</h5><p>Konu açıklaması</p></div></div>
-    <div class="col-md-3"><div class="info-card speaker-box"><h5>Konuşmacı 8</h5><p>Konu açıklaması</p></div></div>
+    <div class="col-md-3"><div class="info-card speaker-box text-center"><i class="bi bi-person-circle fs-1"></i><h5>Konuşmacı 1</h5><p>Konu açıklaması</p></div></div>
+    <div class="col-md-3"><div class="info-card speaker-box text-center"><i class="bi bi-person-circle fs-1"></i><h5>Konuşmacı 2</h5><p>Konu açıklaması</p></div></div>
+    <div class="col-md-3"><div class="info-card speaker-box text-center"><i class="bi bi-person-circle fs-1"></i><h5>Konuşmacı 3</h5><p>Konu açıklaması</p></div></div>
+    <div class="col-md-3"><div class="info-card speaker-box text-center"><i class="bi bi-person-circle fs-1"></i><h5>Konuşmacı 4</h5><p>Konu açıklaması</p></div></div>
+    <div class="col-md-3"><div class="info-card speaker-box text-center"><i class="bi bi-person-circle fs-1"></i><h5>Konuşmacı 5</h5><p>Konu açıklaması</p></div></div>
+    <div class="col-md-3"><div class="info-card speaker-box text-center"><i class="bi bi-person-circle fs-1"></i><h5>Konuşmacı 6</h5><p>Konu açıklaması</p></div></div>
+    <div class="col-md-3"><div class="info-card speaker-box text-center"><i class="bi bi-person-circle fs-1"></i><h5>Konuşmacı 7</h5><p>Konu açıklaması</p></div></div>
+    <div class="col-md-3"><div class="info-card speaker-box text-center"><i class="bi bi-person-circle fs-1"></i><h5>Konuşmacı 8</h5><p>Konu açıklaması</p></div></div>
   </div>
 </section>
 
@@ -139,75 +141,29 @@
 <section id="program" class="container my-5">
   <h2>Program</h2>
   <ul class="list-group shadow-sm">
-    <li class="list-group-item">10:00 — Açılış</li>
-    <li class="list-group-item">10:30 — Konuşma 1</li>
-    <li class="list-group-item">11:30 — Ara</li>
-    <li class="list-group-item">12:00 — Konuşma 2</li>
+    <li class="list-group-item"><i class="bi bi-door-open"></i> 10:00 — Açılış</li>
+    <li class="list-group-item"><i class="bi bi-mic"></i> 10:30 — Konuşma 1</li>
+    <li class="list-group-item"><i class="bi bi-cup-hot"></i> 11:30 — Ara</li>
+    <li class="list-group-item"><i class="bi bi-mic"></i> 12:00 — Konuşma 2</li>
   </ul>
 </section>
 
 <!-- KADRO -->
 <section id="kadro" class="container my-5">
   <h2>Kadro</h2>
-
-  <!-- Organizator ve Co-Founder -->
   <div class="row justify-content-center mb-4">
     <div class="col-md-4 mb-3">
       <div class="info-card text-center black-box">
-        <h5>Organizatör</h5>
+        <h5><i class="bi bi-star-fill"></i> Organizatör</h5>
         <p>Alya Erteni</p>
       </div>
     </div>
     <div class="col-md-4 mb-3">
       <div class="info-card text-center black-box">
-        <h5>Co-Founder</h5>
+        <h5><i class="bi bi-lightbulb"></i> Co-Founder</h5>
         <p>Ömer Raif Özoğlu</p>
       </div>
     </div>
   </div>
-
-  <!-- Media, Event, Treasure Teams -->
   <div class="row">
-    <div class="col-md-4 mb-3">
-      <div class="info-card text-center red-box">
-        <h5>Media Team</h5>
-        <p>Mehmet Ulaç Girgin</p>
-        <p>Elif Su Özdemir</p>
-        <p>Kuzey Çelik</p>
-        <p>Yusuf Batuhan</p>
-      </div>
-    </div>
-    <div class="col-md-4 mb-3">
-      <div class="info-card text-center red-box">
-        <h5>Event Team</h5>
-        <p>Zehra</p>
-        <p>Asel Akbaba</p>
-        <p>Alper Kırsay</p>
-        <p>Yavuz Emin Kaya</p>
-        <p>Duru Körkün</p>
-        <p>İkra</p>
-        <p>Sena</p>
-      </div>
-    </div>
-    <div class="col-md-4 mb-3">
-      <div class="info-card text-center red-box">
-        <h5>Treasure Team</h5>
-        <p>Sude Söğütlü</p>
-        <p>BERAT HÜSEYİN GÜLLÜ</p>
-        <p>Umut Devrim Deveci</p>
-        <p>Yusuf Tuna Ceylan</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- İLETİŞİM -->
-<section id="iletisim" class="container my-5">
-  <h2>İletişim</h2>
-  <p><strong>Email:</strong> tedxadanafen@gmail.com</p>
-  <p><strong>Instagram:</strong> @tedxadanafen</p>
-</section>
-
-<footer>
-  © 2025 TEDx Adana Fen — Bu TEDx etkinliği, TED lisansı altında düzenlenmektedir.
-</footer
+    <div
