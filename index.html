@@ -10,7 +10,7 @@
   <link rel="shortcut icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/favicon.png">
 
-  <!-- Open Graph (sosyal medya ve Google için) -->
+  <!-- Open Graph (Sosyal medya kartları) -->
   <meta property="og:title" content="TEDx Adana Fen">
   <meta property="og:description" content="Fikir. Dönüşüm. Gelecek. Adana Fen Lisesi öğrencileri tarafından organize edilen TEDx etkinliği.">
   <meta property="og:image" content="https://www.tedxadanafen.com/favicon.png">
@@ -20,11 +20,12 @@
   <meta property="og:url" content="https://www.tedxadanafen.com">
   <meta property="og:type" content="website">
 
-  <!-- Schema.org yapılandırılmış veri (Google snippet için logo) -->
+  <!-- Schema.org: Google için Logo (elindeki tek görsel favicon olduğu için favicon kullanıldı) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "name": "TEDx Adana Fen",
     "url": "https://www.tedxadanafen.com",
     "logo": "https://www.tedxadanafen.com/favicon.png"
   }
@@ -43,53 +44,73 @@
       --card-bg: #111114;
       --card-border: #1f1f24;
     }
+
     html, body {
       scroll-behavior: smooth;
       background: radial-gradient(1200px 600px at 10% 10%, #121217, #0b0b0d);
       color: #eceef2;
     }
+
     .navbar {
       backdrop-filter: blur(6px);
       background: rgba(12, 12, 14, 0.75) !important;
       border-bottom: 1px solid #1f1f24;
     }
-    .nav-link { color: #cfd2d8 !important; }
-    .nav-link:hover, .nav-link.active { color: var(--brand-red) !important; }
+
+    .nav-link { 
+      color: #cfd2d8 !important; 
+    }
+
+    .nav-link:hover,
+    .nav-link.active { 
+      color: var(--brand-red) !important; 
+    }
+
     .brand-dot {
       display: inline-block;
-      width: .65rem; height: .65rem;
+      width: .65rem;
+      height: .65rem;
       background: var(--brand-red);
       border-radius: 50%;
       margin-left: .25rem;
     }
+
     .btn-brand {
       background: var(--brand-red);
       border: none;
       color: #fff;
       box-shadow: 0 10px 30px rgba(230, 43, 30, 0.25);
     }
-    .btn-brand:hover { background: #cc261a; }
+
+    .btn-brand:hover { 
+      background: #cc261a; 
+    }
+
     .section {
       padding: 90px 0;
       border-top: 1px solid #1f1f24;
     }
+
     .section-title {
       font-weight: 800;
       letter-spacing: .5px;
       font-size: clamp(1.6rem, 2.5vw, 2.4rem);
     }
+
     .section-kicker {
       color: var(--text-muted);
       font-size: .95rem;
       letter-spacing: .12rem;
       text-transform: uppercase;
     }
+
     .hero {
       padding: 120px 0 80px 0;
       background:
         radial-gradient(600px 280px at 88% 15%, rgba(230, 43, 30, .12), transparent 60%),
         radial-gradient(800px 420px at 10% 80%, rgba(255,255,255,.04), transparent 60%);
     }
+
     .hero-tag {
       display: inline-flex;
       align-items: center;
@@ -100,51 +121,99 @@
       color: var(--text-muted);
       font-size: .9rem;
     }
+
     .card-modern {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       border-radius: 16px;
     }
-    .timeline { position: relative; padding-left: 2rem; }
+
+    .timeline { 
+      position: relative; 
+      padding-left: 2rem; 
+    }
+
     .timeline::before {
-      content: ""; position: absolute; left: .75rem; top: 0; bottom: 0;
-      width: 2px; background: #2a2a31;
+      content: "";
+      position: absolute;
+      left: .75rem;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #2a2a31;
     }
-    .tl-item { position: relative; margin-bottom: 1.25rem; padding-left: .5rem; }
+
+    .tl-item { 
+      position: relative; 
+      margin-bottom: 1.25rem; 
+      padding-left: .5rem; 
+    }
+
     .tl-item::before {
-      content: ""; position: absolute; left: -1rem; top: .45rem;
-      width: 10px; height: 10px; border-radius: 50%;
-      background: var(--brand-red); box-shadow: 0 0 0 4px rgba(230,43,30,.12);
+      content: "";
+      position: absolute;
+      left: -1rem;
+      top: .45rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--brand-red);
+      box-shadow: 0 0 0 4px rgba(230, 43, 30, .12);
     }
-    .tl-time { color: var(--text-muted); font-size: .9rem; }
+
+    .tl-time { 
+      color: var(--text-muted); 
+      font-size: .9rem; 
+    }
+
     .speaker-card {
-      display: grid; grid-template-columns: 120px 1fr;
-      gap: 1.25rem; padding: 1.25rem;
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 1.25rem;
+      padding: 1.25rem;
     }
+
     .speaker-img {
-      width: 120px; height: 120px; border-radius: 12px;
-      object-fit: cover; background: linear-gradient(135deg, #1f1f24, #141418);
+      width: 120px;
+      height: 120px;
+      border-radius: 12px;
+      object-fit: cover;
+      background: linear-gradient(135deg, #1f1f24, #141418);
       border: 1px solid #26262c;
     }
-    .speaker-name { font-weight: 800; }
-    .speaker-role { color: var(--text-muted); font-style: italic; }
-    .speaker-bio { color: #d9dbe1; }
+
+    .speaker-name { 
+      font-weight: 800; 
+    }
+
+    .speaker-role { 
+      color: var(--text-muted); 
+      font-style: italic; 
+    }
+
+    .speaker-bio { 
+      color: #d9dbe1; 
+    }
+
     .venue-card .badge {
       background: rgba(230,43,30,.12);
       color: #ffb7ae;
       border: 1px solid rgba(230,43,30,.25);
     }
+
     .team-group-title {
       font-weight: 800;
       font-size: 1.3rem;
       text-align: center;
       color: #e1e3e8;
     }
+
     .team-list {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: .75rem;
     }
+
     .team-pill {
       background: #131318;
       border: 1px solid #26262c;
@@ -154,13 +223,23 @@
       text-align: center;
       font-size: .95rem;
     }
+
     .footer {
       border-top: 1px solid #1f1f24;
       padding: 40px 0;
       color: var(--text-muted);
     }
-    .muted { color: var(--text-muted); }
-    .divider { height: 1px; background: #1f1f24; width: 100%; }
+
+    .muted { 
+      color: var(--text-muted); 
+    }
+
+    .divider { 
+      height: 1px; 
+      background: #1f1f24; 
+      width: 100%; 
+    }
+
     @media (max-width: 576px) {
       .speaker-card { grid-template-columns: 90px 1fr; }
       .speaker-img { width: 90px; height: 90px; }
